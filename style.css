@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Permanent+Marker&family=Space+Grotesk:wght@300..700&display=swap');
+body{
+    background-color: black;
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 20;
+    font-style: normal;
+}
+h1{
+    text-align: center;
+    color: white ;
+}
+button{
+    background-color: white;
+    color: black;
+    border: 2px solid rgb(238, 0, 186);
+    border-radius: 4px;
+    margin-top: 5px;
+    width:10.5vw ;
+    cursor: pointer;
+}
+input{
+    color: #f71ee5;
+    outline: 0;
+    width: 10vw;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(238, 0, 186);
+    border-radius: 4px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: rgb(228,158,241);
+    background: linear-gradient(0deg, rgb(222, 170, 231) 0%, rgb(231, 122, 250) 50%, rgba(198, 98, 216) 100%);
+    border: 5px solid rgb(189, 66, 183);
+    
+}
+.box{
+    display: flex;
+    justify-content: space-around;
+    border-radius: 8px;
+    
+}
+
+footer{
+    border: 5px solid rgb(189, 66, 183);
+    text-align: center;
+    background: rgb(228,158,241);
+    background: linear-gradient(0deg, rgb(198, 98, 216) 0%, rgb(231, 122, 250) 50%, rgb(222, 170, 231) 100%);
+    display: grid;
+    place-items: center;
+    box-shadow: 0px 33px 61px 0px rgb(225, 116, 245);
+}
+
+.face{
+    border: 5px solid rgb(80, 71, 241);
+    color: rgb(233, 227, 227);
+    background: rgb(32,22,198);
+    width: 15%;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    border-radius: 11px;
+    background: linear-gradient(90deg, rgba(32,22,198,1) 0%, rgba(79,70,233,1) 49%, rgba(8,8,125,1) 100%);
+}
+.insta{
+    color: rgb(233, 227, 227);
+    border: 5px solid rgb(207, 101, 221);
+    margin-bottom: 2px;
+    background: rgb(178,22,198);
+    width: 15%;
+    border-radius: 11px;
+    background: linear-gradient(90deg, rgba(178,22,198,1) 0%, rgba(228,77,177,1) 49%, rgba(178,22,198,1) 100%);
+}
+.twitter{
+    color: rgb(233, 227, 227);
+    margin-bottom: 2px;
+    border: 5px solid rgb(126, 190, 247);
+    width: 15%;
+    border-radius: 11px;
+    background: rgb(68,169,255);
+    background: linear-gradient(90deg, rgba(68,169,255,1) 0%, rgba(140,202,255,1) 49%, rgba(68,169,255,1) 100%);
+}
+.twitch{
+    color: rgb(233, 227, 227);
+    margin-bottom: 2px;
+    border: 5px solid rgb(148, 91, 255);
+    border-radius: 11px;
+    background: rgb(86,0,245);
+    width: 15%;
+    background: linear-gradient(90deg, rgba(86,0,245,1) 0%, rgba(171,127,252,1) 49%, rgba(86,0,245,1) 100%);
+}
