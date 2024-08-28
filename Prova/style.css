@@ -11,12 +11,12 @@ body {
 }
 
 .navbar-brand, .nav-link {
-    color: #333 !important;
+    color: #333 ;
     font-weight: 600;
 }
 
 .nav-link.active {
-    color: #ff8800 !important;
+    color: #ff8800 ;
 }
 
 h2 {
@@ -68,5 +68,5 @@ footer a:hover {
 }
 
 .navbar-nav .nav-link:hover {
-    color: #ff8800 !important;
+    color: #ff8800 ;
 }
