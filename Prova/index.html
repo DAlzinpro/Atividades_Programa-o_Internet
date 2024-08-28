@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Receitas do IF</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Início</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Receitas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Dicas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Sobre</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contato</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <div class="container my-4">
+
+        <div class="row justify-content-center">
+            <div class="col-md-4 text-center">
+                <p>Lasanha de Carne</p>
+                <img src="https://receitadaboa.com.br/wp-content/uploads/2024/08/lasanha.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-4 text-center">
+                <p>Pão caseiro</p>
+                <img src="https://receitadaboa.com.br/wp-content/uploads/2024/08/iStock-1142140379.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-4 text-center">
+                <p>Risoto de Queijo</p>
+                <img src="https://receitadaboa.com.br/wp-content/uploads/2024/03/food-5981246_1280.jpg" alt="" class="img-fluid">
+            </div>
+        </div>
+        
+      <div class="row justify-content-center mt-4">
+            <div class="col-md-4 text-center">
+                <p>Massa de Pizza de Liquidificador</p>
+                <img src="https://receitadaboa.com.br/wp-content/uploads/2024/08/Imagem-ilustrativa-de-pizza-1.webp" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-4 text-center">
+                <p>Cuca Baiana</p>
+                <img src="https://receitadaboa.com.br/wp-content/uploads/2024/08/iStock-1820793933.jpg" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="container my-4">
+        <h2 class="text-center">Envie Sua Receita</h2>
+        <form>
+            <div class="mb-3">
+                <label for="nomeReceita" class="form-label">Nome da Receita</label>
+                <input type="text" class="form-control" id="nomeReceita" placeholder="Digite o nome da receita" required>
+            </div>
+            <div class="mb-3">
+                <label for="descricaoReceita" class="form-label">Descrição</label>
+                <textarea class="form-control" id="descricaoReceita" rows="3" placeholder="Descreva a receita" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="ingredientesReceita" class="form-label">Ingredientes</label>
+                <textarea class="form-control" id="ingredientesReceita" rows="4" placeholder="Liste os ingredientes" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="preparoReceita" class="form-label">Modo de Preparo</label>
+                <textarea class="form-control" id="preparoReceita" rows="5" placeholder="Explique o modo de preparo" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="imagemReceita" class="form-label">Imagem da Receita</label>
+                <input class="form-control" type="file" id="imagemReceita">
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Enviar Receita</button>
+            </div>
+        </form>
+    </div>
+
+    <hr>
+
+    <footer class="text-center py-4 footer">
+        <p>Dalberti Felipe 3º de Informática &copy;</p>
+        <div>
+            <a href="#" class="text-dark me-3"><i class="bi bi-facebook" style="font-size: 1.5rem;"></i></a>
+            <a href="#" class="text-dark me-3"><i class="bi bi-instagram" style="font-size: 1.5rem;"></i></a>
+            <a href="#" class="text-dark me-3"><i class="bi bi-twitter" style="font-size: 1.5rem;"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

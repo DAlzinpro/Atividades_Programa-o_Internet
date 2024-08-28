@@ -1,0 +1,41 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fffbe6;
+    color: #333;
+}
+.navbar, .footer {
+    background-color: #ffdd57;
+
+}
+.navbar-brand, .nav-link {
+    color: #333 !important;
+    font-weight: 600;
+}
+.nav-link.active {
+    color: #ff8800 !important;
+}
+h2 {
+    color: #ff8800;
+}
+.btn-primary {
+    background-color: #ff8800;
+    border-color: #ff8800;
+}
+.btn-primary:hover {
+    background-color: #e67300;
+    border-color: #e67300;
+}
+.form-label {
+    font-weight: 600;
+}
+footer {
+    background-color: #ffdd57;
+    color: #333;
+}
+footer a {
+    color: #333;
+}
+footer a:hover {
+    color: #ff8800;
+}
+
