@@ -2,40 +2,71 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #fffbe6;
     color: #333;
+    margin: 0;
+    padding: 0;
 }
+
 .navbar, .footer {
     background-color: #ffdd57;
-
 }
+
 .navbar-brand, .nav-link {
     color: #333 !important;
     font-weight: 600;
 }
+
 .nav-link.active {
     color: #ff8800 !important;
 }
+
 h2 {
     color: #ff8800;
+    margin-bottom: 1.5rem;
 }
+
 .btn-primary {
     background-color: #ff8800;
     border-color: #ff8800;
+    transition: background-color 0.3s, border-color 0.3s;
 }
+
 .btn-primary:hover {
     background-color: #e67300;
     border-color: #e67300;
 }
+
 .form-label {
     font-weight: 600;
 }
+
 footer {
     background-color: #ffdd57;
     color: #333;
+    padding: 2rem 0;
 }
+
 footer a {
     color: #333;
+    transition: color 0.3s;
 }
+
 footer a:hover {
     color: #ff8800;
 }
 
+.img-hover {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.img-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-nav .nav-link {
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff8800 !important;
+}
