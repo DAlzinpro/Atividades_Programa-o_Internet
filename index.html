@@ -1,34 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/feather-icons"></script>
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Exercícios de Lógica de Programação</title>
+    <script src="script.js"></script>
 </head>
 <body>
-    <h1>Dalberti</h1>
-    <div class="box">
-    <img src="https://img.freepik.com/vetores-gratis/montanhas-paisagem-violeta-gradiente_23-2148275916.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1711065600&semt=ais" alt="">
-    <form action="">
-        Nome<input type="text">
-        E-Mail<input type="text">
-        Fone<input type="text">
-        <button>Enviar</button>
-        <button>Cancelar</button>
-    </form>
-    <img src="https://img.freepik.com/vetores-gratis/montanhas-paisagem-violeta-gradiente_23-2148275916.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1711065600&semt=ais" alt="">
+
+<h1>Exercícios de Lógica de Programação</h1>
+
+<div class="exercicio">
+    <h2>1. Área do Terreno</h2>
+    <input type="number" id="largura" >
+    <input type="number" id="comprimento" >
+    <button onclick="calcularArea()">Calcular Área</button>
+    <p id="resultadoArea"></p>
 </div>
-<footer>
-    <div class="face"><i data-feather="facebook"></i></div>
-    <div class="insta"><i data-feather="instagram"></i></div>
-    <div class="twitter"><i data-feather="twitter"></i></div>
-    <div class="twitch"><i data-feather="twitch"></i></div>
-    <p>&copy; IFPR Campus Cascavel</p>
-</footer>
-<script>
-    feather.replace();
-  </script>
+
+<div class="exercicio">
+    <h2>2. Ferraduras Necessárias</h2>
+    <input type="number" id="cavalos" >
+    <button onclick="calcularFerraduras()">Calcular Ferraduras</button>
+    <p id="resultadoFerraduras"></p>
+</div>
+
+<div class="exercicio">
+    <h2>3. Venda da Padaria</h2>
+    <input type="number" id="pães" >
+    <input type="number" id="broas" >
+    <button onclick="calcularVendaPadaria()">Calcular Arrecadação</button>
+    <p id="resultadoPadaria"></p>
+</div>
+
+<div class="exercicio">
+    <h2>4. Dias de Vida</h2>
+    <input type="text" id="nome" >
+    <input type="number" id="idade" >
+    <button onclick="calcularDiasVida()">Calcular Dias de Vida</button>
+    <p id="resultadoVida"></p>
+</div>
+
+<div class="exercicio">
+    <h2>5. Litros de Gasolina</h2>
+    <input type="number" id="precoGas" >
+    <input type="number" id="valorPago" >
+    <button onclick="calcularGasolina()">Calcular Litros</button>
+    <p id="resultadoGasolina"></p>
+</div>
+
+<div class="exercicio">
+    <h2>6. Valor do Prato</h2>
+    <input type="number" id="pesoPrato" >
+    <button onclick="calcularValorPrato()">Calcular Valor</button>
+    <p id="resultadoPrato"></p>
+</div>
+
+<div class="exercicio">
+    <h2>7. Dias Desde o Início do Ano</h2>
+    <input type="number" id="dia" >
+    <input type="number" id="mes" >
+    <button onclick="calcularDiasAno()">Calcular Dias</button>
+    <p id="resultadoDiasAno"></p>
+</div>
+
+<div class="exercicio">
+    <h2>8. Média Ponderada</h2>
+    <input type="number" id="nota1" >
+    <input type="number" id="nota2" >
+    <input type="number" id="nota3" >
+    <button onclick="calcularMedia()">Calcular Média</button>
+    <p id="resultadoMedia"></p>
+</div>
+
+<div class="exercicio">
+    <h2>9. Valor Arrecadado com Camisetas</h2>
+    <input type="number" id="pequena">
+    <input type="number" id="media">
+    <input type="number" id="grandes">
+    <button onclick="calcularCamisetas()">Calcular Arrecadação</button>
+    <p id="resultadoCamisetas"></p>
+</div>
+
+<div class="exercicio">
+    <h2>10. Distância entre Dois Pontos</h2>
+    <input type="number" id="x1" >
+    <input type="number" id="y1" >
+    <input type="number" id="x2" >
+    <input type="number" id="y2" >
+    <button onclick="calcularDistancia()">Calcular Distância</button>
+    <p id="resultadoDistancia"></p>
+</div>
+    
 </body>
 </html>
+    
