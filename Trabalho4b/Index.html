@@ -9,36 +9,83 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
         }
 
-        header {
+        /* Estilizando a barra de navegação */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #007bff;
+            color: white;
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            padding: 0 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
         }
 
-        header img {
+        .navbar img {
             width: 50px;
             height: 50px;
-            margin-right: 10px;
+            margin-right: 15px;
+        }
+
+        .navbar h1 {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        /* Estilizando o conteúdo do corpo */
+        .content {
+            margin-top: 80px;
+            padding: 20px;
         }
 
         #atividadeInput, #prioridadeSelect {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
             margin-right: 10px;
-            padding: 5px;
         }
 
         button {
-            padding: 5px 10px;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
+            font-size: 14px;
             display: flex;
             align-items: center;
             gap: 5px;
         }
 
+        button:hover {
+            background-color: #0056b3;
+        }
+
         .lista-atividades {
             margin-top: 20px;
+        }
+
+        .atividade {
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         footer {
@@ -58,20 +105,30 @@
     </style>
 </head>
 <body>
-    <!-- Cabeçalho com imagem e campos -->
-    <header>
+    <!-- Barra de navegação -->
+    <nav class="navbar">
         <img src="https://seeklogo.com/images/I/ifpr-instituto-federal-do-parana-icone-logo-E4B5B3D67E-seeklogo.com.png" alt="Logo">
-        <input type="text" id="atividadeInput" placeholder="Digite uma atividade">
-        <select id="prioridadeSelect">
-            <option value="alta">Alta</option>
-            <option value="media">Média</option>
-            <option value="baixa">Baixa</option>
-        </select>
-        <button onclick="adicionarAtividade()">Adicionar</button>
-    </header>
+        <h1>Gerenciador de Atividades</h1>
+    </nav>
 
-    <!-- Lista de atividades -->
-    <div class="lista-atividades" id="listaAtividades"></div>
+    <!-- Conteúdo principal -->
+    <div class="content">
+        <!-- Inputs de atividades -->
+        <header>
+            <input type="text" id="atividadeInput" placeholder="Digite uma atividade">
+            <select id="prioridadeSelect">
+                <option value="alta">Alta</option>
+                <option value="media">Média</option>
+                <option value="baixa">Baixa</option>
+            </select>
+            <button onclick="adicionarAtividade()">
+                <i class="fas fa-plus"></i> Adicionar
+            </button>
+        </header>
+
+        <!-- Lista de atividades -->
+        <div class="lista-atividades" id="listaAtividades"></div>
+    </div>
 
     <!-- Rodapé -->
     <footer>
@@ -80,7 +137,6 @@
     </footer>
 
     <script>
-        // Função para adicionar uma nova atividade
         function adicionarAtividade() {
             const input = document.getElementById('atividadeInput');
             const select = document.getElementById('prioridadeSelect');
@@ -94,19 +150,13 @@
             const cor = definirCor(select.value);
 
             const atividade = document.createElement('div');
+            atividade.className = 'atividade';
             atividade.style.backgroundColor = cor;
-            atividade.style.padding = '10px';
-            atividade.style.borderRadius = '5px';
-            atividade.style.marginBottom = '10px';
-            atividade.style.display = 'flex';
-            atividade.style.justifyContent = 'space-between';
-            atividade.style.alignItems = 'center';
 
             const texto = document.createElement('span');
             texto.textContent = input.value;
 
             const botoes = document.createElement('div');
-
             const botaoEditar = criarBotao('Editar', 'fa-edit', () => editarAtividade(atividade, texto));
             const botaoConfirmar = criarBotao('Confirmar', 'fa-check', () => confirmarAtividade(atividade));
             const botaoCancelar = criarBotao('Cancelar', 'fa-times', () => cancelarAtividade(atividade));
@@ -123,55 +173,11 @@
             input.value = '';
         }
 
-        // Função para definir a cor da atividade com base na prioridade
         function definirCor(prioridade) {
-            if (prioridade === 'alta') return '#f28b82'; // Vermelho claro
-            if (prioridade === 'media') return '#fbbc04'; // Amarelo claro
-            if (prioridade === 'baixa') return '#ccff90'; // Verde claro
+            return prioridade === 'alta' ? '#f28b82' :
+                   prioridade === 'media' ? '#fbbc04' : '#ccff90';
         }
 
-        // Função para editar a atividade
-        function editarAtividade(atividade, texto) {
-            const novoTexto = prompt("Edite a atividade:", texto.textContent);
-            if (novoTexto !== null && novoTexto.trim() !== '') {
-                texto.textContent = novoTexto;
-            }
-
-            const seletor = document.createElement('select');
-            const opcaoAlta = document.createElement('option');
-            const opcaoMedia = document.createElement('option');
-            const opcaoBaixa = document.createElement('option');
-
-            opcaoAlta.value = 'alta';
-            opcaoAlta.textContent = 'Alta';
-            opcaoMedia.value = 'media';
-            opcaoMedia.textContent = 'Média';
-            opcaoBaixa.value = 'baixa';
-            opcaoBaixa.textContent = 'Baixa';
-
-            seletor.appendChild(opcaoAlta);
-            seletor.appendChild(opcaoMedia);
-            seletor.appendChild(opcaoBaixa);
-
-            seletor.value = (atividade.style.backgroundColor === '#f28b82') ? 'alta' :
-                            (atividade.style.backgroundColor === '#fbbc04') ? 'media' : 'baixa';
-
-            const botoes = atividade.querySelector('div');
-            botoes.innerHTML = '';
-
-            const botaoSalvar = criarBotao('Salvar', 'fa-save', () => {
-                atividade.style.backgroundColor = definirCor(seletor.value);
-                botoes.innerHTML = '';
-                botoes.appendChild(criarBotao('Editar', 'fa-edit', () => editarAtividade(atividade, texto)));
-                botoes.appendChild(criarBotao('Confirmar', 'fa-check', () => confirmarAtividade(atividade)));
-                botoes.appendChild(criarBotao('Cancelar', 'fa-times', () => cancelarAtividade(atividade)));
-            });
-
-            botoes.appendChild(seletor);
-            botoes.appendChild(botaoSalvar);
-        }
-
-        // Função para criar um botão com ícone
         function criarBotao(texto, iconeClasse, funcao) {
             const botao = document.createElement('button');
             const icone = document.createElement('i');
@@ -182,12 +188,15 @@
             return botao;
         }
 
-        // Função para confirmar a atividade
+        function editarAtividade(atividade, texto) {
+            const novoTexto = prompt("Edite a atividade:", texto.textContent);
+            if (novoTexto) texto.textContent = novoTexto;
+        }
+
         function confirmarAtividade(atividade) {
             atividade.style.textDecoration = 'line-through';
         }
 
-        // Função para cancelar a atividade
         function cancelarAtividade(atividade) {
             atividade.remove();
         }
