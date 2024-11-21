@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Atividades</title>
+    <!-- Importando a biblioteca de ícones Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        header img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        #atividadeInput, #prioridadeSelect {
+            margin-right: 10px;
+            padding: 5px;
+        }
+
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .lista-atividades {
+            margin-top: 20px;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho com imagem e campos -->
+    <header>
+        <img src="https://seeklogo.com/images/I/ifpr-instituto-federal-do-parana-icone-logo-E4B5B3D67E-seeklogo.com.png" alt="Logo">
+        <input type="text" id="atividadeInput" placeholder="Digite uma atividade">
+        <select id="prioridadeSelect">
+            <option value="alta">Alta</option>
+            <option value="media">Média</option>
+            <option value="baixa">Baixa</option>
+        </select>
+        <button onclick="adicionarAtividade()">Adicionar</button>
+    </header>
+
+    <!-- Lista de atividades -->
+    <div class="lista-atividades" id="listaAtividades"></div>
+
+    <!-- Rodapé -->
+    <footer>
+        Desenvolvido por <strong>Dalberti Felipe</strong>. 
+        <a href="https://github.com/DAlzinpro/DAlzinpro" target="_blank">Meu GitHub</a>
+    </footer>
+
+    <script>
+        // Função para adicionar uma nova atividade
+        function adicionarAtividade() {
+            const input = document.getElementById('atividadeInput');
+            const select = document.getElementById('prioridadeSelect');
+            const lista = document.getElementById('listaAtividades');
+
+            if (!input.value.trim()) {
+                alert("Por favor, digite uma atividade.");
+                return;
+            }
+
+            const cor = definirCor(select.value);
+
+            const atividade = document.createElement('div');
+            atividade.style.backgroundColor = cor;
+            atividade.style.padding = '10px';
+            atividade.style.borderRadius = '5px';
+            atividade.style.marginBottom = '10px';
+            atividade.style.display = 'flex';
+            atividade.style.justifyContent = 'space-between';
+            atividade.style.alignItems = 'center';
+
+            const texto = document.createElement('span');
+            texto.textContent = input.value;
+
+            const botoes = document.createElement('div');
+
+            const botaoEditar = criarBotao('Editar', 'fa-edit', () => editarAtividade(atividade, texto));
+            const botaoConfirmar = criarBotao('Confirmar', 'fa-check', () => confirmarAtividade(atividade));
+            const botaoCancelar = criarBotao('Cancelar', 'fa-times', () => cancelarAtividade(atividade));
+
+            botoes.appendChild(botaoEditar);
+            botoes.appendChild(botaoConfirmar);
+            botoes.appendChild(botaoCancelar);
+
+            atividade.appendChild(texto);
+            atividade.appendChild(botoes);
+
+            lista.appendChild(atividade);
+
+            input.value = '';
+        }
+
+        // Função para definir a cor da atividade com base na prioridade
+        function definirCor(prioridade) {
+            if (prioridade === 'alta') return '#f28b82'; // Vermelho claro
+            if (prioridade === 'media') return '#fbbc04'; // Amarelo claro
+            if (prioridade === 'baixa') return '#ccff90'; // Verde claro
+        }
+
+        // Função para editar a atividade
+        function editarAtividade(atividade, texto) {
+            const novoTexto = prompt("Edite a atividade:", texto.textContent);
+            if (novoTexto !== null && novoTexto.trim() !== '') {
+                texto.textContent = novoTexto;
+            }
+
+            const seletor = document.createElement('select');
+            const opcaoAlta = document.createElement('option');
+            const opcaoMedia = document.createElement('option');
+            const opcaoBaixa = document.createElement('option');
+
+            opcaoAlta.value = 'alta';
+            opcaoAlta.textContent = 'Alta';
+            opcaoMedia.value = 'media';
+            opcaoMedia.textContent = 'Média';
+            opcaoBaixa.value = 'baixa';
+            opcaoBaixa.textContent = 'Baixa';
+
+            seletor.appendChild(opcaoAlta);
+            seletor.appendChild(opcaoMedia);
+            seletor.appendChild(opcaoBaixa);
+
+            seletor.value = (atividade.style.backgroundColor === '#f28b82') ? 'alta' :
+                            (atividade.style.backgroundColor === '#fbbc04') ? 'media' : 'baixa';
+
+            const botoes = atividade.querySelector('div');
+            botoes.innerHTML = '';
+
+            const botaoSalvar = criarBotao('Salvar', 'fa-save', () => {
+                atividade.style.backgroundColor = definirCor(seletor.value);
+                botoes.innerHTML = '';
+                botoes.appendChild(criarBotao('Editar', 'fa-edit', () => editarAtividade(atividade, texto)));
+                botoes.appendChild(criarBotao('Confirmar', 'fa-check', () => confirmarAtividade(atividade)));
+                botoes.appendChild(criarBotao('Cancelar', 'fa-times', () => cancelarAtividade(atividade)));
+            });
+
+            botoes.appendChild(seletor);
+            botoes.appendChild(botaoSalvar);
+        }
+
+        // Função para criar um botão com ícone
+        function criarBotao(texto, iconeClasse, funcao) {
+            const botao = document.createElement('button');
+            const icone = document.createElement('i');
+            icone.className = `fas ${iconeClasse}`;
+            botao.appendChild(icone);
+            botao.appendChild(document.createTextNode(` ${texto}`));
+            botao.onclick = funcao;
+            return botao;
+        }
+
+        // Função para confirmar a atividade
+        function confirmarAtividade(atividade) {
+            atividade.style.textDecoration = 'line-through';
+        }
+
+        // Função para cancelar a atividade
+        function cancelarAtividade(atividade) {
+            atividade.remove();
+        }
+    </script>
+</body>
+</html>
