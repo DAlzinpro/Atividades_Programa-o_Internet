@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Navbar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-logo">To do list</div>
+            <ul class="navbar-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h2>My To-Do List</h2>
+            <form id="task-form">
+                <input type="text" id="task-name" placeholder="Enter Task" required>
+                <select id="priority">
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+                <button type="submit">Add Task</button>
+            </form>
+            <ul id="task-list"></ul>
+        </section>
+        <section id="about">About Us</section>
+        <section id="games">Our Games</section>
+        <section id="contact">Contact Us</section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

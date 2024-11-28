@@ -1,0 +1,271 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background: radial-gradient(circle, #0d0d0d, #101010, #0d0d0d); /* Fundo mais neutro */
+    color: #fff;
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(121, 145, 255, 0.8); /* Fundo translúcido */
+    border-bottom: 2px solid #00ffff; /* Ciano neon */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    transform: translateY(-100%); /* Oculta inicialmente */
+    transition: transform 0.5s ease, background 0.3s ease;
+    position: relative; /* Necessário para o efeito no :after */
+}
+
+.navbar:hover {
+    transform: translateY(0); /* Aparece ao passar o mouse */
+}
+
+.navbar-logo {
+    font-size: 1.4em;
+    color: #00ffff; /* Ciano neon */
+    text-shadow: 0 0 8px #266d6d, 0 0 16px #00ccff;
+    animation: glow 1.5s infinite alternate;
+    font-weight: 300; /* Peso da fonte mais leve */
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s, text-shadow 0.3s;
+    font-weight: 300; /* Peso da fonte mais leve */
+}
+
+.navbar-links li a:hover {
+    color: #00ccff;
+    text-shadow: 0 0 8px #00ccff, 0 0 16px #00ffff;
+}
+
+.navbar:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%; /* Estica para criar movimento mais perceptível */
+    height: 100%;
+    background: linear-gradient(90deg, #00ffff, #0011ff, #ff007f, #00ffff); /* Gradiente mais vibrante */
+    animation: move-bg 3s linear infinite; /* Animação mais rápida */
+    z-index: -1;
+    filter: blur(15px);
+    opacity: 0.6;
+}
+
+main {
+    margin-top: 80px;
+}
+
+section {
+    padding: 100px;
+    text-align: center;
+    font-size: 2em;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    margin: 20px auto;
+    width: 80%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+#home {
+    background: linear-gradient(to bottom, #001f3f, #00111f);
+}
+
+#about {
+    background: linear-gradient(to bottom, #004080, #002240);
+}
+
+#games {
+    background: linear-gradient(to bottom, #600080, #300040);
+}
+
+#contact {
+    background: linear-gradient(to bottom, #ff4500, #801a00);
+}
+
+/* Efeitos de animação */
+@keyframes move-bg {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ccff;
+    }
+    to {
+        text-shadow: 0 0 20px #00ccff, 0 0 40px #00ffff;
+    }
+}
+
+/* Navbar retrátil automática sem fechar ao hover */
+body:hover .navbar {
+    transform: translateY(-100%);
+}
+
+header:hover .navbar {
+    transform: translateY(0);
+}
+
+/* Adicionando estilos para a to-do list */
+#task-form {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+#task-name {
+    padding: 10px;
+    width: 60%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#priority {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px;
+    background-color: #00ccff;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0099cc;
+}
+
+/* Estilo geral para a lista de tarefas */
+ul#task-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul#task-list li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #0d0d0d; /* Fundo preto */
+    font-size: 0.9em; /* Fonte menor para as tarefas */
+    position: relative;
+    color: #fff; /* Cor do texto branca */
+}
+
+ul#task-list li.high::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px; /* Largura da fitinha */
+    height: 100%;
+    background-color: #ff6666; /* Cor para alta prioridade */
+    border-radius: 5px 0 0 5px; /* Bordas arredondadas à esquerda */
+}
+
+ul#task-list li.medium::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px; /* Largura da fitinha */
+    height: 100%;
+    background-color: #ffff66; /* Cor para média prioridade */
+    border-radius: 5px 0 0 5px;
+}
+
+ul#task-list li.low::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px; /* Largura da fitinha */
+    height: 100%;
+    background-color: #66ff66; /* Cor para baixa prioridade */
+    border-radius: 5px 0 0 5px;
+}
+
+/* Ajustes para o texto e os botões */
+ul#task-list li .task-name {
+    flex-grow: 1;
+    margin-left: 20px; /* Ajuste para o texto não colidir com a barra de cor */
+    font-size: 1em; /* Font-size ajustado para o texto da tarefa */
+    text-decoration: none;
+}
+
+ul#task-list li button {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+button.edit,
+button.delete,
+button.confirm {
+    padding: 5px 10px;
+    font-size: 0.8em;
+    border-radius: 5px;
+}
+
+button.confirm {
+    background-color: #33cc33;
+}
+
+button.delete {
+    background-color: #ff3333;
+}
+
+button.confirm:disabled,
+button.edit:disabled,
+button.delete:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button.edit:hover {
+    background-color: #ffcc00;
+}
+
+button.delete:hover {
+    background-color: #ff0000;
+}
+
+button.confirm:hover {
+    background-color: #28a745;
+}
