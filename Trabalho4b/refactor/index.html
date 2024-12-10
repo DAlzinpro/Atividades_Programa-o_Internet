@@ -42,7 +42,6 @@
 </html>
 
 <script>
-  // Initialize Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyD7esLpesGPSSWcPLCfp8UwlRlZXvOvtoc",
     authDomain: "todolist-dfa06.firebaseapp.com",
@@ -56,38 +55,32 @@ const firebaseConfig = {
   const database = firebase.database();
   const tasksRef = database.ref('tasks');
 
-  // Listen for form submission
   document.getElementById("task-form").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    // Get task data from the form
     const taskName = document.getElementById("task-name").value;
     const priority = document.getElementById("priority").value;
 
-    // Create a new task object
     const newTask = {
       name: taskName,
       priority: priority,
       completed: false
     };
 
-    // Add the task to the database
     tasksRef.push(newTask);
 
-    // Clear the form input
     document.getElementById("task-name").value = "";
   });
 
-  // Listen for changes in the database
+  
   tasksRef.on('value', (snapshot) => {
-    // Clear the task list
+    
     document.getElementById("task-list").innerHTML = '';
 
-    // Iterate over the tasks in the database
     snapshot.forEach(task => {
       const taskData = task.val();
 
-      // Create a new list item for the task
+
       const taskItem = document.createElement("li");
       taskItem.classList.add(taskData.priority);
       taskItem.innerHTML = `
@@ -99,20 +92,20 @@ const firebaseConfig = {
         </div>
       `;
 
-      // Add event listeners for the buttons
+     
       taskItem.querySelector(".delete").addEventListener("click", function() {
-        // Delete the task from the database
+  
         tasksRef.child(this.dataset.taskId).remove();
       });
 
       taskItem.querySelector(".edit").addEventListener("click", function() {
-        // Get the current task name
+
         const currentName = taskItem.querySelector(".task-name").textContent;
 
-        // Prompt the user for a new name
+
         const newName = prompt("Edit Task", currentName);
 
-        // Update the task in the database if a new name is provided
+        
         if (newName) {
           tasksRef.child(this.dataset.taskId).update({
             name: newName
@@ -121,21 +114,21 @@ const firebaseConfig = {
       });
 
       taskItem.querySelector(".confirm").addEventListener("click", function() {
-        // Update the task in the database to mark it as completed
+        /
         tasksRef.child(this.dataset.taskId).update({
           completed: true
         });
 
-        // Strikethrough the task name
+        
         taskItem.querySelector(".task-name").style.textDecoration = "line-through";
 
-        // Disable the buttons
+        
         taskItem.querySelector(".confirm").disabled = true;
         taskItem.querySelector(".edit").disabled = true;
         taskItem.querySelector(".delete").disabled = true;
       });
 
-      // Add the task item to the task list
+      
       document.getElementById("task-list").appendChild(taskItem);
     });
   });
