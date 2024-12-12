@@ -1,4 +1,5 @@
-Foi utilizado O banco de dados firebase, onde a conexão é ralizada com esse código: 
+Foi utilizado O banco de dados firebase, onde a conexão é ralizada com esse código:
+
 ``const firebaseConfig = {
     apiKey: "AIzaSyD7esLpesGPSSWcPLCfp8UwlRlZXvOvtoc",
     authDomain: "todolist-dfa06.firebaseapp.com",
@@ -10,5 +11,6 @@ Foi utilizado O banco de dados firebase, onde a conexão é ralizada com esse c�
   };
   firebase.initializeApp(firebaseConfig);
   const database = firebase.database();
-  const tasksRef = database.ref('tasks');
+  
   ``
+Onde é passado as informações de autencação e informações do projeto,e logo em seguida inicializa o banco de dados no html
