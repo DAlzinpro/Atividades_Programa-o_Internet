@@ -1,5 +1,5 @@
 Foi utilizado O banco de dados firebase, onde a conexão é ralizada com esse código:
-
+<br>
 ``const firebaseConfig = {
     apiKey: "AIzaSyD7esLpesGPSSWcPLCfp8UwlRlZXvOvtoc",
     authDomain: "todolist-dfa06.firebaseapp.com",
