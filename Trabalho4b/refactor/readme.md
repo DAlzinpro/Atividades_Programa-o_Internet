@@ -10,7 +10,6 @@ Foi utilizado O banco de dados firebase, onde a conexão é ralizada com esse c�
     measurementId: "G-WTHMYE36DJ"
   };
   firebase.initializeApp(firebaseConfig);
-  const database = firebase.database();
-  
-  ``
+  const database = firebase.database();``
+  <br>
 Onde é passado as informações de autencação e informações do projeto,e logo em seguida inicializa o banco de dados no html
