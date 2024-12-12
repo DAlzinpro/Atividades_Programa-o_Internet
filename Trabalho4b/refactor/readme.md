@@ -1,4 +1,4 @@
-#TO-DO list com Banco de Dados
+# TO-DO list com Banco de Dados
 Foi utilizado O banco de dados firebase, onde a conexão é ralizada com esse código:
 <br>
 ``const firebaseConfig = {
